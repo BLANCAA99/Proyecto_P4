@@ -1,0 +1,15 @@
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\obj\Debug\Application.csproj.AssemblyReference.cache
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\bin\Debug\Application.dll.config
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\bin\Debug\Application.dll
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\bin\Debug\Application.pdb
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\bin\Debug\DataAccess.dll
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\bin\Debug\EntityFramework.dll
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\bin\Debug\DataAccess.pdb
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\bin\Debug\DataAccess.dll.config
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\bin\Debug\EntityFramework.xml
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\obj\Debug\Application.csproj.CopyComplete
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\obj\Debug\Application.dll
+C:\Users\J4a17\Downloads\Programacion 4\Proyecto Final - Blanca Arias_61911487\Application\obj\Debug\Application.pdb

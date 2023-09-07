@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15560201-60CD-4671-A9C5-FA368B119632}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Applicacion</RootNamespace>
+    <AssemblyName>Applicacion</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Collection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=e57c3f0a3d6646db, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.Collection.6.0.0\lib\net461\AutoMapper.Collection.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\Proyecto Final - Blanca Arias\DataAccess\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\Proyecto Final - Blanca Arias\DataAccess\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Fugu.Contracts, Version=20.5.0.0, Culture=neutral, PublicKeyToken=feea2cd6c6706808, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fugu.Contracts.20.5.0\lib\netstandard2.0\Fugu.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Fugu.DependencyInjection, Version=20.5.0.0, Culture=neutral, PublicKeyToken=feea2cd6c6706808, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fugu.DependencyInjection.20.5.0\lib\netstandard2.0\Fugu.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Fugu.Mapping, Version=20.5.0.0, Culture=neutral, PublicKeyToken=feea2cd6c6706808, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fugu.Mapping.20.5.0\lib\netstandard2.0\Fugu.Mapping.dll</HintPath>
+    </Reference>
+    <Reference Include="Fugu.Mapping.AutoMapper, Version=20.5.0.0, Culture=neutral, PublicKeyToken=feea2cd6c6706808, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fugu.Mapping.AutoMapper.20.5.0\lib\netstandard2.0\Fugu.Mapping.AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.4\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.4\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CentrosAsistencia\Commands\CreateAsistenciaCommand\CreateAsistenciaCommand.cs" />
+    <Compile Include="CentrosAsistencia\Commands\CreateAsistenciaCommand\CreateAsistenciaCommandModel.cs" />
+    <Compile Include="CentrosAsistencia\Commands\DeleteAsistenciaCommand\DeleteAsistenciaCommand.cs" />
+    <Compile Include="CentrosAsistencia\Commands\UpdateAsistenciaCommand\UpdateAsistenciaCommand.cs" />
+    <Compile Include="CentrosAsistencia\Commands\UpdateAsistenciaCommand\UpdateAsistenciaCommandModel.cs" />
+    <Compile Include="CentrosAsistencia\Map\AutoMapperCentrosAsistencia.cs" />
+    <Compile Include="CentrosAsistencia\QueriesAsistencia\GetAllAttendanceQuery\GetAllAsistenciaQuery.cs" />
+    <Compile Include="CentrosAsistencia\QueriesAsistencia\GetAllAttendanceQuery\GetAllAsistenciaQueryModel.cs" />
+    <Compile Include="CentrosAsistencia\QueriesAsistencia\GetAttendanceByIdQuery\GetAsistenciaByIdQuery.cs" />
+    <Compile Include="CentrosAsistencia\QueriesAsistencia\GetAttendanceByIdQuery\GetAsistenciaByIdQueryModel.cs" />
+    <Compile Include="Ciudadano\Commands\CreateCiudadanoCommand\CreateCiudadanoCommand.cs" />
+    <Compile Include="Ciudadano\Commands\CreateCiudadanoCommand\CreateCiudadanoCommandModel.cs" />
+    <Compile Include="Ciudadano\Commands\DeleteCiudadanoCommand\DeleteCiudadanoCommand.cs" />
+    <Compile Include="Ciudadano\Commands\UpdateCiudadanoCommand\UpdateCiudadanoCommand.cs" />
+    <Compile Include="Ciudadano\Commands\UpdateCiudadanoCommand\UpdateCiudadanoCommandModel.cs" />
+    <Compile Include="Ciudadano\MapCiudadano\AutoMapperCiudadano.cs" />
+    <Compile Include="Ciudadano\QueriesCiudadano\GetCiudadanoByIdQuery\GetCiudadanoByIdQuery.cs" />
+    <Compile Include="Ciudadano\QueriesCiudadano\GetCiudadanoByIdQuery\GetCiudadanoByIdQueryModel.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="DB.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios\Commands\CreateUserCommand\CreateUserCommand.cs" />
+    <Compile Include="Usuarios\Commands\CreateUserCommand\CreateUserCommandModel.cs" />
+    <Compile Include="Usuarios\Commands\DeleteUserCommand\DeleteUserCommand.cs" />
+    <Compile Include="Usuarios\Commands\UpdateUserCommand\UpdateUserCommand.cs" />
+    <Compile Include="Usuarios\Commands\UpdateUserCommand\UpdateUserCommandModel.cs" />
+    <Compile Include="Usuarios\Queries\GetUserByIdQuery\GetUserByIdQuery.cs" />
+    <Compile Include="Usuarios\Queries\GetUserByIdQuery\GetUserByIdQueryModel.cs" />
+    <Compile Include="Usuarios\Queries\GetAllUsersQuery\GetAllUsersQuery.cs" />
+    <Compile Include="Usuarios\Queries\GetAllUsersQuery\GetAllUsersQueryModel.cs" />
+    <Compile Include="VacunasxCiudadano\Commands\CreateVacunasxCiudadanoCommand\CreateVacunasxCiudadanoCommand.cs" />
+    <Compile Include="VacunasxCiudadano\Commands\CreateVacunasxCiudadanoCommand\CreateVacunasxCiudadanoCommandModel.cs" />
+    <Compile Include="VacunasxCiudadano\Commands\DeleteVacunasxCiudadanoCommand\DeleteVacunasxCiudadanoCommand.cs" />
+    <Compile Include="VacunasxCiudadano\Commands\UpdateVacunasxCiudadanoCommand\UpdateVacunasxCiudadanoCommand.cs" />
+    <Compile Include="VacunasxCiudadano\Commands\UpdateVacunasxCiudadanoCommand\UpdateVacunasxCiudadanoCommandModel.cs" />
+    <Compile Include="VacunasxCiudadano\MapVacunaxCiudadano\AutoMapperVacunaxCiudadano.cs" />
+    <Compile Include="VacunasxCiudadano\QueriesVacunasxCiudadano\GetVacunasxCiudadanoById.cs" />
+    <Compile Include="VacunasxCiudadano\QueriesVacunasxCiudadano\GetVacunasxCiudadanoByIdModel.cs" />
+    <Compile Include="Vacuna\Commands\CreateVacunaCommand\CreateVacunaCommand.cs" />
+    <Compile Include="Vacuna\Commands\CreateVacunaCommand\CreateVacunaCommandModel.cs" />
+    <Compile Include="Vacuna\Commands\DeleteVacunaCommand\DeleteVacunaCommand.cs" />
+    <Compile Include="Vacuna\Commands\UpdateVacunaCommand\UpdateVacunaCommand.cs" />
+    <Compile Include="Vacuna\Commands\UpdateVacunaCommand\UpdateVacunaCommandModel.cs" />
+    <Compile Include="Vacuna\MapVacuna\AutoMapperVacuna.cs" />
+    <Compile Include="Vacuna\QueriesVacuna\GetVacunaByIdQuery\GetVacunaByIdQuery.cs" />
+    <Compile Include="Vacuna\QueriesVacuna\GetVacunaByIdQuery\GetVacunaByIdQueryModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Proyecto Final - Blanca Arias\DataAccess\DataAccess\DataAccess.csproj">
+      <Project>{dbc85ba3-d0ca-4b8f-a64c-957a024a0f6a}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

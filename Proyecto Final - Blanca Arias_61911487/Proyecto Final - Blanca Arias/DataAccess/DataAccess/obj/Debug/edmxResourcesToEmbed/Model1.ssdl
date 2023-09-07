@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CentrosAsistencia">
+    <Key>
+      <PropertyRef Name="Id_Asistencia" />
+    </Key>
+    <Property Name="Id_Asistencia" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Direccion" Type="varchar" MaxLength="300" />
+    <Property Name="Ciudad" Type="varchar" MaxLength="50" />
+    <Property Name="Capacidad_Atencion" Type="int" />
+    <Property Name="Cantidad_Medicos" Type="int" />
+    <Property Name="Cantidad_Enfermeras" Type="int" />
+    <Property Name="Estatus" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Ciudadanos">
+    <Key>
+      <PropertyRef Name="Id_Ciudadanos" />
+    </Key>
+    <Property Name="Id_Ciudadanos" Type="int" Nullable="false" />
+    <Property Name="Nombre_Completo" Type="varchar" MaxLength="100" />
+    <Property Name="Fecha_Nacimiento" Type="date" />
+    <Property Name="Edad" Type="int" />
+    <Property Name="Genero" Type="varchar" MaxLength="10" />
+    <Property Name="Telefono" Type="varchar" MaxLength="15" />
+    <Property Name="Direccion_Domicilio" Type="varchar" MaxLength="200" />
+    <Property Name="Estado_Civil" Type="varchar" MaxLength="20" />
+    <Property Name="Enfermedades_Base" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'Proyecto Final .dbo.Roles' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Roles">
+          <Property Name="Codigo_Rol" Type="int" />
+          <Property Name="Nom_Rol" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Contraseña" Type="varchar" MaxLength="100" />
+    <Property Name="NumeroIdentidad" Type="varchar" MaxLength="20" />
+    <Property Name="NombreCompleto" Type="varchar" MaxLength="100" />
+    <Property Name="Genero" Type="varchar" MaxLength="10" />
+    <Property Name="CorreoElectronico" Type="varchar" MaxLength="100" />
+    <Property Name="Telefono" Type="varchar" MaxLength="15" />
+    <Property Name="Rol" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Vacunas">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Fabricante" Type="varchar" MaxLength="100" />
+    <Property Name="Fecha_Emision" Type="date" />
+    <Property Name="Fecha_Vencimiento" Type="date" />
+    <Property Name="Numero_Lote" Type="varchar" MaxLength="50" />
+    <Property Name="Estatus" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="VacunasxCiudadano">
+    <Key>
+      <PropertyRef Name="Numero_Dosis" />
+      <PropertyRef Name="Ciudadano_ID" />
+      <PropertyRef Name="Centro_Asistencia_ID" />
+      <PropertyRef Name="Codigo_Vacuna" />
+    </Key>
+    <Property Name="Numero_Dosis" Type="int" Nullable="false" />
+    <Property Name="Ciudadano_ID" Type="int" Nullable="false" />
+    <Property Name="Centro_Asistencia_ID" Type="int" Nullable="false" />
+    <Property Name="Codigo_Vacuna" Type="int" Nullable="false" />
+    <Property Name="Fecha_Aplicacion" Type="date" />
+  </EntityType>
+  <Association Name="FK__VacunasxC__Centr__4AB81AF0">
+    <End Role="CentrosAsistencia" Type="Self.CentrosAsistencia" Multiplicity="1" />
+    <End Role="VacunasxCiudadano" Type="Self.VacunasxCiudadano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CentrosAsistencia">
+        <PropertyRef Name="Id_Asistencia" />
+      </Principal>
+      <Dependent Role="VacunasxCiudadano">
+        <PropertyRef Name="Centro_Asistencia_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VacunasxC__Ciuda__49C3F6B7">
+    <End Role="Ciudadanos" Type="Self.Ciudadanos" Multiplicity="1" />
+    <End Role="VacunasxCiudadano" Type="Self.VacunasxCiudadano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudadanos">
+        <PropertyRef Name="Id_Ciudadanos" />
+      </Principal>
+      <Dependent Role="VacunasxCiudadano">
+        <PropertyRef Name="Ciudadano_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VacunasxC__Codig__4BAC3F29">
+    <End Role="Vacunas" Type="Self.Vacunas" Multiplicity="1" />
+    <End Role="VacunasxCiudadano" Type="Self.VacunasxCiudadano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacunas">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="VacunasxCiudadano">
+        <PropertyRef Name="Codigo_Vacuna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="CentrosAsistencia" EntityType="Self.CentrosAsistencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ciudadanos" EntityType="Self.Ciudadanos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacunas" EntityType="Self.Vacunas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VacunasxCiudadano" EntityType="Self.VacunasxCiudadano" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__VacunasxC__Centr__4AB81AF0" Association="Self.FK__VacunasxC__Centr__4AB81AF0">
+      <End Role="CentrosAsistencia" EntitySet="CentrosAsistencia" />
+      <End Role="VacunasxCiudadano" EntitySet="VacunasxCiudadano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VacunasxC__Ciuda__49C3F6B7" Association="Self.FK__VacunasxC__Ciuda__49C3F6B7">
+      <End Role="Ciudadanos" EntitySet="Ciudadanos" />
+      <End Role="VacunasxCiudadano" EntitySet="VacunasxCiudadano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VacunasxC__Codig__4BAC3F29" Association="Self.FK__VacunasxC__Codig__4BAC3F29">
+      <End Role="Vacunas" EntitySet="Vacunas" />
+      <End Role="VacunasxCiudadano" EntitySet="VacunasxCiudadano" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
