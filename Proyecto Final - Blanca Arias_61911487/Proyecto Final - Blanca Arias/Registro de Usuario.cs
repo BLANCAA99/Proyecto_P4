@@ -14,8 +14,10 @@ namespace Proyecto_Final___Blanca_Arias
     public partial class Registro_de_Usuario : Form
     {
         private readonly CreateUserCommand createUserCommand;
+        private readonly Util util;
         public Registro_de_Usuario()
         {
+            this.util = new Util();
             InitializeComponent();
             this.createUserCommand = new CreateUserCommand();
         }
@@ -39,6 +41,7 @@ namespace Proyecto_Final___Blanca_Arias
             }
             model.Rol =( cboRol.SelectedIndex + 1).ToString();
             this.createUserCommand.Execute(model);
+            this.util.LimpiarControlesDeTexto(this);
         }
     }
 }

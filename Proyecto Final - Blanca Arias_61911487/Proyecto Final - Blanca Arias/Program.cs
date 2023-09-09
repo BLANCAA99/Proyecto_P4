@@ -16,7 +16,7 @@ namespace Proyecto_Final___Blanca_Arias
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Vacunas());
+            Application.Run(new Inicio());
         }
     }
 }

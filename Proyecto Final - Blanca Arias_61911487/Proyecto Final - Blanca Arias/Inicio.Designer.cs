@@ -32,10 +32,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.btnRegistrarse = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.mskContraseña = new System.Windows.Forms.MaskedTextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,15 +56,15 @@
             this.label2.BackColor = System.Drawing.Color.LightCoral;
             this.label2.Location = new System.Drawing.Point(229, 121);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 20);
+            this.label2.Size = new System.Drawing.Size(144, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Usuario:";
+            this.label2.Text = "Codigo de Usuario:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.LightCoral;
-            this.label3.Location = new System.Drawing.Point(229, 180);
+            this.label3.Location = new System.Drawing.Point(277, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 20);
             this.label3.TabIndex = 2;
@@ -71,17 +72,10 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(361, 115);
+            this.txtUsuario.Location = new System.Drawing.Point(392, 115);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(205, 26);
             this.txtUsuario.TabIndex = 3;
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Location = new System.Drawing.Point(361, 180);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(205, 26);
-            this.txtContraseña.TabIndex = 4;
             // 
             // btnIniciarSesion
             // 
@@ -90,10 +84,11 @@
             this.btnIniciarSesion.Location = new System.Drawing.Point(233, 243);
             this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(1);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(333, 38);
+            this.btnIniciarSesion.Size = new System.Drawing.Size(152, 38);
             this.btnIniciarSesion.TabIndex = 5;
             this.btnIniciarSesion.Text = "Iniciar Sesión";
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
             // btnRegistrarse
             // 
@@ -105,6 +100,7 @@
             this.btnRegistrarse.TabIndex = 6;
             this.btnRegistrarse.Text = "Registrarse";
             this.btnRegistrarse.UseVisualStyleBackColor = false;
+            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
             // label4
             // 
@@ -116,6 +112,27 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "No tienes una cuenta?";
             // 
+            // mskContraseña
+            // 
+            this.mskContraseña.Location = new System.Drawing.Point(392, 180);
+            this.mskContraseña.Name = "mskContraseña";
+            this.mskContraseña.PasswordChar = '*';
+            this.mskContraseña.Size = new System.Drawing.Size(205, 26);
+            this.mskContraseña.TabIndex = 8;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnCancelar.Location = new System.Drawing.Point(403, 243);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(1);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(152, 38);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -124,10 +141,11 @@
             this.BackgroundImage = global::Proyecto_Final___Blanca_Arias.Properties.Resources.VACUNA;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.mskContraseña);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.btnIniciarSesion);
-            this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -145,10 +163,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.Button btnRegistrarse;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox mskContraseña;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
 
