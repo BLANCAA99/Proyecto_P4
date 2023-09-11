@@ -65,12 +65,11 @@
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(70, 29);
             this.inicioToolStripMenuItem.Text = "Inicio";
-            this.inicioToolStripMenuItem.Click += new System.EventHandler(this.inicioToolStripMenuItem_Click);
             // 
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(218, 34);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             // 
             // centroasToolStripMenuItem

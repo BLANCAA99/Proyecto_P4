@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\J4a17\\Downloads\\Programacion 4\\Proyecto Final - Blanca Arias_61911487\\DataAccess\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\J4a17\\OneDrive\\Documentos\\GitHub\\Proyecto_P4\\Proyecto Final - Blanca Arias_61911487\\DataAccess\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\J4a17\\Downloads\\Programacion 4\\Proyecto Final - Blanca Arias_61911487\\DataAccess\\DataAccess\\DataAccess.csproj",
+      "projectPath": "C:\\Users\\J4a17\\OneDrive\\Documentos\\GitHub\\Proyecto_P4\\Proyecto Final - Blanca Arias_61911487\\DataAccess\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\J4a17\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\J4a17\\Downloads\\Programacion 4\\Proyecto Final - Blanca Arias_61911487\\DataAccess\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\J4a17\\OneDrive\\Documentos\\GitHub\\Proyecto_P4\\Proyecto Final - Blanca Arias_61911487\\DataAccess\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

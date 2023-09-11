@@ -16,15 +16,5 @@ namespace Proyecto_Final___Blanca_Arias
         {
             InitializeComponent();
         }
-
-        private void vacunaxCiudadanoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
