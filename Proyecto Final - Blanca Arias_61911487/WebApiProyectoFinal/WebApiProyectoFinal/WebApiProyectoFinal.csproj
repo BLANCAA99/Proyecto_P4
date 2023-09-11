@@ -177,6 +177,7 @@
     <Compile Include="Controllers\DigitadorController.cs" />
     <Compile Include="Controllers\LoginModel.cs" />
     <Compile Include="Controllers\LoginViewModel.cs" />
+    <Compile Include="Controllers\VacunasxCiudadanoesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -295,6 +296,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
     <Content Include="Views\Home\digitador.cshtml" />
+    <Content Include="Views\Home\vacunaxciudadano.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -370,12 +372,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Application\Applicacion.csproj">
-      <Project>{15560201-60cd-4671-a9c5-fa368b119632}</Project>
-      <Name>Applicacion</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,0 +1,101 @@
+﻿<main>
+    <section class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+                <div class="card shadow p-3 mb-5 bg-body rounded">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Ciudadano</h2>
+
+                        <form id="ciudadanoForm">
+                            <div class="form-group">
+                                <label for="identidad">Id:</label>
+                                <input type="text" class="form-control" id="identidad" name="identidad" placeholder="Ingrese su identidad" value="@ViewBag.Title">
+                            </div>
+                            <div class="form-group">
+                                <label for="numeroDosis">Número de Dosis:</label>
+                                <input type="number" class="form-control" id="numeroDosis" name="numeroDosis" placeholder="Ingrese el número de dosis">
+                            </div>
+                            <div class="form-group">
+                                <label for="vacuna">Vacuna:</label>
+                                <input type="text" class="form-control" id="vacuna" name="vacuna" placeholder="Ingrese el nombre de la vacuna">
+                            </div>
+                            <div class="row mt-4 mb-3 ">
+                                <button id="btn-form" data-action="create" type="submit" class="btn btn-primary btn-block ">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+s
+
+<script type="text/javascript">
+
+    function setValue(id, value) {
+        document.getElementById(id).value = value;
+    }
+
+    function getValue(id) {
+        return document.getElementById(id).value;
+    }
+
+    function getData() {
+        let data = {
+            Id_Ciudadanos: getValue("identidad"),
+            Nombre_Completo: getValue("numeroDosis"),
+
+        }
+        return data;
+    }
+
+
+    function create() {
+        let identidad = document.getElementById("identidad");
+        let value = Number(identidad.value);
+        const button = document.getElementById("btn-form");
+        const data = getData();
+        console.log("data", data);
+        fetch(`/api/VacunasxCiudadanoes`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("data", data);
+                if (data.success) {
+                    //Ingresamos la informacion de ciudadano
+                    //identidad.value = data.id;
+                    setValue("identidad", data.Ciudadano_ID);
+                    setValue("numeroDosis", data.Numero_Dosis);
+
+                    //Mostramos la informacion del ciudadano
+                    let dataCiudadano = document.getElementById("data-ciudadano");
+                    dataCiudadano.classList.remove("ciudadano--ocultar");
+
+                    button.setAttribute("data-action", "save");
+                } else {
+
+                    //document.getElementById("message").textContent = "Credenciales incorrectas. Inténtalo de nuevo.";
+                }
+            })
+            .catch(error => {
+                console.error("Error de red:", error);
+            });
+    }
+
+    
+
+    document.getElementById("ciudadanoForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        create();
+
+    });
+
+</script>

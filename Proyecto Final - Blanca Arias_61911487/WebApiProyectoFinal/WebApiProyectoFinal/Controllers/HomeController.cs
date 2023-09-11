@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
-using Applicacion.CentrosAsistencia.QueriesAsistencia.GetAllAttendanceQuery;
+//using Applicacion.CentrosAsistencia.QueriesAsistencia.GetAllAttendanceQuery;
 
 namespace WebApiProyectoFinal.Controllers
 {
@@ -15,21 +15,22 @@ namespace WebApiProyectoFinal.Controllers
             ViewBag.Title = "Home Page";
             if (Auth.isAuth) return View(Auth.currentAuth);
             var model = new LoginViewModel();
+            Proyecto_FinalEntities db = new Proyecto_FinalEntities();
 
-            var getAllAsistenciaQuery = new GetAllAsistenciaQuery();
-            /*model.centrosAsistencia = getAllAsistenciaQuery.Execute().Select(centro => new CentroAsistencia
+           // var getAllAsistenciaQuery = new GetAllAsistenciaQuery();
+            model.centrosAsistencia = db.CentrosAsistencias.Select(centro => new Centro
             {
                 Id_Asistencia = centro.Id_Asistencia,
                 Descripcion = centro.Descripcion
-            }).ToList();*/
+            }).ToList();
 
-            List<CentroAsistencia> list = new List<CentroAsistencia>
+           /* List<CentroAsistencia> list = new List<CentroAsistencia>
         {
             new CentroAsistencia { Id_Asistencia = 1, Descripcion = "Base Naval" },
             new CentroAsistencia { Id_Asistencia = 2, Descripcion = "Centro de salud" }
           
         };
-            model.centrosAsistencia = list;
+            model.centrosAsistencia = list;*/
 
             return View("Login", model);
         }
@@ -38,12 +39,18 @@ namespace WebApiProyectoFinal.Controllers
         {
             return View("Digitador");
         }
+        public ActionResult VacunaXCiudadano(int idCiudadano)
+        {
+            ViewBag["id"] = idCiudadano;
+            return View("vacunaxciudadano");
+        }
 
 
-     
 
 
-       
+
+
+
 
     }
 }

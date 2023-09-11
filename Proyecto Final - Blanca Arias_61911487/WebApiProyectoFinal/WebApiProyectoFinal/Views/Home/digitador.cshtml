@@ -20,7 +20,7 @@
 
                                 <div class="form-group mt-3">
                                     <label for="fecnacimiento">Fecha de nacimiento</label>
-                                    <input name="fecnacimiento" type="text" class="form-control" id="fecnacimiento" placeholder="Ingrese la fecha de nacimiento">
+                                    <input name="fecnacimiento" type="date" class="form-control" id="fecnacimiento" placeholder="Ingrese la fecha de nacimiento">
                                 </div>
 
                                 <div class="form-group mt-3">
@@ -37,13 +37,15 @@
                                     <label for="estadocivil">Estado civil</label>
                                     <input name="estadocivil" type="text" class="form-control" id="estadocivil" placeholder="Ingrese el estado civil">
                                 </div>
+                                <div class="form-group mt-5">
+                                    <h5 >Vacunas</h5>
+                                    <div id="vacunas"></div>
+                                </div>
                             </article>
                             <div class="col mt-4 mb-3 ">
-                                <button type="button" onclick="search()" class="btn btn-primary btn-block ">Buscar</button>
-
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                    Agregar Vacuna
-                                </button>
+                                <button type="button" onclick="search()" class="btn btn-primary btn-block mt-1">Buscar</button>
+                                <button type="button" onclick="mostrarCiudadano()" class="btn btn-secondary btn-block mt-1">Agregar ciudadano</button>
+                                <button type="button" onclick="ingresarDosis()" class="btn btn-secondary mt-1">Agregar Vacuna </button>
 
                             </div>
                             <div class="row mt-4 mb-3 ">
@@ -62,40 +64,7 @@
 </main>
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Formulario de Vacunación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Aquí comienza el formulario -->
-                <form>
-                    <div class="form-group">
-                        <label for="identidad">Identidad:</label>
-                        <input type="text" class="form-control" id="identidad" name="identidad" placeholder="Ingrese su identidad">
-                    </div>
-                    <div class="form-group">
-                        <label for="numeroDosis">Número de Dosis:</label>
-                        <input type="number" class="form-control" id="numeroDosis" name="numeroDosis" placeholder="Ingrese el número de dosis">
-                    </div>
-                    <div class="form-group">
-                        <label for="vacuna">Vacuna:</label>
-                        <input type="text" class="form-control" id="vacuna" name="vacuna" placeholder="Ingrese el nombre de la vacuna">
-                    </div>
-                </form>
-                <!-- Fin del formulario -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 
@@ -105,13 +74,44 @@
     }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
-
 <script type="text/javascript">
+
+    function ingresarDosis() {
+        console.log("Ejecuta")
+        window.location.href = "/Home/VacunaXCiudadano/" + Number(getValue("identidad")); 
+    }
 
     function setValue(id, value) {
         document.getElementById(id).value = value;
+    }
+
+    function limpiarInputs() {
+        setValue("nombre", '');
+        setValue("fecnacimiento", '');
+        setValue("genero", '');
+        setValue("direccion", '');
+        setValue("estadocivil", '');
+        setVacunas([]); 
+    }
+
+    function mostrarCiudadano() {
+        //Mostramos los input de la informacion del ciudadano
+        limpiarInputs();
+        let dataCiudadano = document.getElementById("data-ciudadano");
+        dataCiudadano.classList.remove("ciudadano--ocultar");
+    }
+
+    function setVacunas(vacunas) {
+        let vacunasContainer = document.getElementById("vacunas");
+        if (vacunas.length === 0) vacunasContainer.innerHTML = "No tiene vacunas";
+        let ul = document.createElement("ul");
+        for (let vacuna of vacunas) {
+            let li = document.createElement("li");
+            li.innerHTML = `#dosis: ${vacuna.Numero_Dosis}  vacuna: ${vacuna.Codigo_Vacuna} fecha:  ${vacuna.Fecha_Aplicacion} `;
+            ul.appendChild(li);
+        }
+       
+        vacunasContainer.appendChild(ul);
     }
 
     function search() {
@@ -119,34 +119,33 @@
         let value = Number(identidad.value);
         console.log("buscar");
         const button = document.getElementById("btn-form");
-        fetch(`/api/digitador/${value}`, {
+        fetch(`/api/ciudadanoes/${value}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
         })
-            .then(response => response.json())
+            .then(response => response.status === 404 ? { success: false } : response.json() )
             .then(data => {
                 console.log("data", data);
-                if (data.success) {
+
+                if (data.success === undefined) {
                     //Ingresamos la informacion de ciudadano
-                    identidad.value = data.id;
-                    setValue("nombre", data.nombre);
-                    setValue("fecnacimiento", data.fecnacimiento);
-                    setValue("genero", data.genero);
-                    setValue("direccion", data.direccion);
-                    setValue("estadocivil", data.estadocivil);
-
-                    //Mostramos la informacion del ciudadano
-                    let dataCiudadano = document.getElementById("data-ciudadano");
-                    dataCiudadano.classList.remove("ciudadano--ocultar");
-
+                    identidad.value = data.Id_Ciudadanos;
+                    setValue("nombre", data.Nombre_Completo);
+                    setValue("fecnacimiento", data.Fecha_Nacimiento);
+                    setValue("genero", data.Genero);
+                    setValue("direccion", data.Direccion_Domicilio);
+                    setValue("estadocivil", data.Estado_Civil);
+                    console.log("Actualiza");
+                    setVacunas(data.VacunasxCiudadanoes); 
                     button.setAttribute("data-action", "save");
                     //window.location.href = "/Home/index";
                 } else {
                     button.setAttribute("data-action", "create")
                     //document.getElementById("message").textContent = "Credenciales incorrectas. Inténtalo de nuevo.";
                 }
+                mostrarCiudadano();
             })
             .catch(error => {
                 console.error("Error de red:", error);
@@ -159,24 +158,24 @@
 
     function getData() {
         let data = {
-            id: getValue("identidad"),
-            nombre: getValue("nombre"),
-            fecnacimiento: getValue("fecnacimiento"),
-            genero: getValue("genero"),
-            direccion: getValue("direccion"),
-            estadocivil: getValue("estadocivil"),
+            Id_Ciudadanos: getValue("identidad"),
+            Nombre_Completo: getValue("nombre"),
+            Fecha_Nacimiento: getValue("fecnacimiento"),
+            Genero: getValue("genero"),
+            Direccion_Domicilio: getValue("direccion"),
+            Estado_Civil: getValue("estadocivil"),
         }
         return data;
     }
-
+ 
     function create() {
         let identidad = document.getElementById("identidad");
         let value = Number(identidad.value);
         const button = document.getElementById("btn-form");
         const data = getData();
-
-        fetch(`/api/digitador/${value}`, {
-            method: "PUT",
+        console.log("data", data);
+        fetch(`/api/ciudadanoes/${value}`, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -185,7 +184,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log("data", data);
-                if (data.success) {
+                if (data.success === undefined) {
                     //Ingresamos la informacion de ciudadano
                     identidad.value = data.id;
                     setValue("nombre", data.nombre);
@@ -215,7 +214,7 @@
         const button = document.getElementById("btn-form");
         const data = getData();
 
-        fetch(`/api/digitador/${vaue}`, {
+        fetch(`/api/ciudadanoes/${vaue}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -253,7 +252,7 @@
         event.preventDefault();
 
         const button = document.getElementById("btn-form");
-        const action = button.getAttibute("data-action");
+        const action = button.getAttribute("data-action");
 
         switch (action) {
             case "create":
