@@ -73,5 +73,10 @@ namespace Proyecto_Final___Blanca_Arias
         {
             Application.Exit();
         }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

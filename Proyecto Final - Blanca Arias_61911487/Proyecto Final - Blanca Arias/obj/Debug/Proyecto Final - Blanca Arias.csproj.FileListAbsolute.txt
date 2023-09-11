@@ -61,3 +61,34 @@ C:\Users\J4a17\OneDrive\Documentos\GitHub\Proyecto_P4\Proyecto Final - Blanca Ar
 C:\Users\J4a17\OneDrive\Documentos\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto Final - Blanca Arias.exe
 C:\Users\J4a17\OneDrive\Documentos\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto Final - Blanca Arias.pdb
 C:\Users\J4a17\OneDrive\Documentos\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto_Final___Blanca_Arias.OficialMedico.resources
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\Proyecto Final - Blanca Arias.exe.config
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\Proyecto Final - Blanca Arias.exe
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\Proyecto Final - Blanca Arias.pdb
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\Applicacion.dll
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\DataAccess.dll
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\EntityFramework.dll
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\AutoMapper.dll
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\Applicacion.pdb
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\Applicacion.dll.config
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\DataAccess.pdb
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\DataAccess.dll.config
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\EntityFramework.xml
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\AutoMapper.pdb
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\bin\Debug\AutoMapper.xml
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto Final - Blanca Arias.csproj.AssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto_Final___Blanca_Arias.Administrador.resources
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto_Final___Blanca_Arias.CentrosAsistencia.resources
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto_Final___Blanca_Arias.Inicio.resources
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto_Final___Blanca_Arias.Lista_Usuarios.resources
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto_Final___Blanca_Arias.Modificar_Usuario.resources
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto_Final___Blanca_Arias.OficialMedico.resources
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto_Final___Blanca_Arias.Properties.Resources.resources
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto_Final___Blanca_Arias.Registro_de_Usuario.resources
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto_Final___Blanca_Arias.Vacunas.resources
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto Final - Blanca Arias.csproj.GenerateResource.cache
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto Final - Blanca Arias.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto Final - Blanca Arias.csproj.CopyComplete
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto Final - Blanca Arias.exe
+C:\Users\DELL\Documents\GitHub\Proyecto_P4\Proyecto Final - Blanca Arias_61911487\Proyecto Final - Blanca Arias\obj\Debug\Proyecto Final - Blanca Arias.pdb
