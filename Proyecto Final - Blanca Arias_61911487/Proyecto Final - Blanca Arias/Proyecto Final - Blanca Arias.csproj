@@ -92,6 +92,18 @@
     <Compile Include="Modificar Usuario.Designer.cs">
       <DependentUpon>Modificar Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="MostrarCentrosAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MostrarCentrosAsistencia.Designer.cs">
+      <DependentUpon>MostrarCentrosAsistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MostrarVacunas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MostrarVacunas.Designer.cs">
+      <DependentUpon>MostrarVacunas.cs</DependentUpon>
+    </Compile>
     <Compile Include="OficialMedico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +139,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modificar Usuario.resx">
       <DependentUpon>Modificar Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MostrarCentrosAsistencia.resx">
+      <DependentUpon>MostrarCentrosAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MostrarVacunas.resx">
+      <DependentUpon>MostrarVacunas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OficialMedico.resx">
       <DependentUpon>OficialMedico.cs</DependentUpon>

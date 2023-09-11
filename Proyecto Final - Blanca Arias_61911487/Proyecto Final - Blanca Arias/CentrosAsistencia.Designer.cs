@@ -185,9 +185,9 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(596, 172);
+            this.btnGuardar.Location = new System.Drawing.Point(587, 180);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(158, 50);
+            this.btnGuardar.Size = new System.Drawing.Size(171, 50);
             this.btnGuardar.TabIndex = 17;
             this.btnGuardar.Text = "Guardar Centro Asistencia";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -217,9 +217,9 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(596, 103);
+            this.btnBuscar.Location = new System.Drawing.Point(587, 111);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(158, 48);
+            this.btnBuscar.Size = new System.Drawing.Size(171, 48);
             this.btnBuscar.TabIndex = 20;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -227,9 +227,9 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(596, 234);
+            this.btnActualizar.Location = new System.Drawing.Point(587, 242);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(158, 48);
+            this.btnActualizar.Size = new System.Drawing.Size(171, 48);
             this.btnActualizar.TabIndex = 21;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -237,9 +237,9 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(596, 302);
+            this.btnEliminar.Location = new System.Drawing.Point(587, 310);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(158, 48);
+            this.btnEliminar.Size = new System.Drawing.Size(171, 48);
             this.btnEliminar.TabIndex = 22;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;

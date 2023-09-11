@@ -32,6 +32,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mostrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.centroasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarCentrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteCentrosAsistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,12 +53,13 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.centroasToolStripMenuItem,
             this.vacunasToolStripMenuItem,
             this.ciudadanosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,7 +75,38 @@
             // 
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modificarUsuariosToolStripMenuItem,
+            this.crearUsuariosToolStripMenuItem,
+            this.mostrarUsuariosToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(96, 30);
+            this.toolStripMenuItem1.Text = "Usuarios";
+            // 
+            // modificarUsuariosToolStripMenuItem
+            // 
+            this.modificarUsuariosToolStripMenuItem.Name = "modificarUsuariosToolStripMenuItem";
+            this.modificarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.modificarUsuariosToolStripMenuItem.Text = "Modificar Usuarios";
+            this.modificarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.modificarUsuariosToolStripMenuItem_Click);
+            // 
+            // crearUsuariosToolStripMenuItem
+            // 
+            this.crearUsuariosToolStripMenuItem.Name = "crearUsuariosToolStripMenuItem";
+            this.crearUsuariosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.crearUsuariosToolStripMenuItem.Text = "Crear Usuarios";
+            this.crearUsuariosToolStripMenuItem.Click += new System.EventHandler(this.crearUsuariosToolStripMenuItem_Click);
+            // 
+            // mostrarUsuariosToolStripMenuItem
+            // 
+            this.mostrarUsuariosToolStripMenuItem.Name = "mostrarUsuariosToolStripMenuItem";
+            this.mostrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.mostrarUsuariosToolStripMenuItem.Text = "Mostrar Usuarios";
             // 
             // centroasToolStripMenuItem
             // 
@@ -86,6 +122,7 @@
             this.modificarCentrosToolStripMenuItem.Name = "modificarCentrosToolStripMenuItem";
             this.modificarCentrosToolStripMenuItem.Size = new System.Drawing.Size(338, 34);
             this.modificarCentrosToolStripMenuItem.Text = "Modificar Centros Asistencia";
+            this.modificarCentrosToolStripMenuItem.Click += new System.EventHandler(this.modificarCentrosToolStripMenuItem_Click);
             // 
             // reporteCentrosAsistenciaToolStripMenuItem
             // 
@@ -107,6 +144,7 @@
             this.modificarVacunasToolStripMenuItem.Name = "modificarVacunasToolStripMenuItem";
             this.modificarVacunasToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.modificarVacunasToolStripMenuItem.Text = "Modificar Vacunas";
+            this.modificarVacunasToolStripMenuItem.Click += new System.EventHandler(this.modificarVacunasToolStripMenuItem_Click);
             // 
             // reporteDeVacunasToolStripMenuItem
             // 
@@ -127,6 +165,7 @@
             this.modificarCiudadanosToolStripMenuItem.Name = "modificarCiudadanosToolStripMenuItem";
             this.modificarCiudadanosToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
             this.modificarCiudadanosToolStripMenuItem.Text = "Modificar Ciudadanos";
+            this.modificarCiudadanosToolStripMenuItem.Click += new System.EventHandler(this.modificarCiudadanosToolStripMenuItem_Click);
             // 
             // Administrador
             // 
@@ -157,5 +196,9 @@
         private System.Windows.Forms.ToolStripMenuItem modificarVacunasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteDeVacunasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarCiudadanosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem modificarUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mostrarUsuariosToolStripMenuItem;
     }
 }

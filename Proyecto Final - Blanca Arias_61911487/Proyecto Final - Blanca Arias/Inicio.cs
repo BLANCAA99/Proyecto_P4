@@ -33,25 +33,22 @@ namespace Proyecto_Final___Blanca_Arias
 
                     if (usuario != null)
                     {
-                        if (usuario.Rol == "1")
+
+                    Auth.codUsuario = usuario.Codigo; // Asigna el código de usuario autenticado
+                    Auth.RolUsuario = usuario.Rol;
+
+                    if (usuario.Rol == "1")
                         {
                         Administrador formAdmin = new Administrador();
                         formAdmin.Show();
                         this.Hide();
                     }
-                   else if (usuario.Rol == "oficialmedico")
+                   else if (usuario.Rol == "2")
                     {
                         OficialMedico formMedico = new OficialMedico();
                         formMedico.Show();
                         this.Hide(); 
                     }
-                    /*
-                else if (usuario.Rol == "digitadordatos")
-                {
-                    DigitadorDatos formDigitador = new DigitadorDatos();
-                    formDigitador.Show();
-                    this.Hide();
-                }*/
                 }
                 else
                     {

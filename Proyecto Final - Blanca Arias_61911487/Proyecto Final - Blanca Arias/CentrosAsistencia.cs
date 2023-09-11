@@ -2,6 +2,7 @@
 using Applicacion.CentrosAsistencia.Commands.DeleteAsistenciaCommand;
 using Applicacion.CentrosAsistencia.Commands.UpdateAsistenciaCommand;
 using Applicacion.CentrosAsistencia.QueriesAsistencia.GetAttendanceByIdQuery;
+using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,9 +23,24 @@ namespace Proyecto_Final___Blanca_Arias
             this.util = new Util();
             InitializeComponent();
         }
-        
+        private bool AsistenciaExiste(int idAsistencia)
+        {
+            using (var dbContext = new Proyecto_FinalEntities())
+            {
+                var asistenciaExiste = dbContext.CentrosAsistencias.FirstOrDefault(u => u.Id_Asistencia == idAsistencia);
+                return asistenciaExiste != null;
+            }
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            int idAsistencia = Convert.ToInt32(txtIdAsistencia.Text);
+            bool asistenciaExiste = AsistenciaExiste(idAsistencia);
+
+            if (asistenciaExiste)
+            {
+                MessageBox.Show("El ID de asistencia ya existe en la base de datos. Introduce un ID único.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; 
+            }
             var createAsistenciaCommand = new CreateAsistenciaCommand();
             var model = new CreateAsistenciaCommandModel();
             model.Id_Asistencia = Convert.ToInt32(txtIdAsistencia.Text);
@@ -42,8 +58,16 @@ namespace Proyecto_Final___Blanca_Arias
             {
                 model.Estatus = "Privado";
             }
-            createAsistenciaCommand.Execute(model);
-            this.util.LimpiarControlesDeTexto(this);
+            try
+            {
+                createAsistenciaCommand.Execute(model);
+                this.util.LimpiarControlesDeTexto(this);
+                MessageBox.Show("Asistencia guardada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error al guardar la asistencia: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

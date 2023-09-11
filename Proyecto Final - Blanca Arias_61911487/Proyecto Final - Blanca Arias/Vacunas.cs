@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccess;
 
 namespace Proyecto_Final___Blanca_Arias
 {
@@ -22,10 +23,26 @@ namespace Proyecto_Final___Blanca_Arias
             this.util = new Util();
             InitializeComponent();
         }
+        private bool VacunaExiste(string nombre)
+        {
+            using (var dbContext = new Proyecto_FinalEntities())
+            {
+                var Nombre = dbContext.Vacunas.FirstOrDefault(u => u.Nombre == nombre);
+                return Nombre != null;
+            }
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var createVacunaCommand = new CreateVacunaCommand();
             var model = new CreateVacunaCommandModel();
+            string nombreVacuna = txtNombre.Text;
+            bool vacunaExiste = VacunaExiste(nombreVacuna);
+
+            if (vacunaExiste)
+            {
+                MessageBox.Show("El nombre de la vacuna ya existe en la base de datos. Introduce un nombre único.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; 
+            }
             try
             {
                 model.Codigo = Convert.ToInt32(txtCodigo.Text);
@@ -34,6 +51,7 @@ namespace Proyecto_Final___Blanca_Arias
                 model.Fecha_Emision = dtpEmision.Value;
                 model.Fecha_Vencimiento = dtpFechaVencimiento.Value;
                 model.Numero_Lote = txtLote.Text;
+
                 if (model.Fecha_Vencimiento < model.Fecha_Emision)
                 {
                     MessageBox.Show("La fecha de vencimiento debe ser posterior a la fecha de emisión.");
@@ -52,10 +70,9 @@ namespace Proyecto_Final___Blanca_Arias
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Asegúrese de ingresar datos válidos en los campos.");
+                MessageBox.Show("Ya existe un codigo de vacuna identico, Ingrese uno nuevo.");
             }
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             var getVacunaByIdQuery = new GetVacunaByIdQuery();

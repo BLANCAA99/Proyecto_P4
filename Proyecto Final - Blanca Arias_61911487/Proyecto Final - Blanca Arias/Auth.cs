@@ -9,5 +9,6 @@ namespace Proyecto_Final___Blanca_Arias
     public class Auth
     {
         public static int codUsuario { get; set; }
+        public static string RolUsuario { get; set; }
     }
 }

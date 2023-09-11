@@ -1,15 +1,19 @@
 ﻿using Applicacion.Usuarios.Commands.DeleteUserCommand;
 using Applicacion.Usuarios.Commands.UpdateUserCommand;
 using Applicacion.Usuarios.Queries.GetUserByIdQuery;
+using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Proyecto_Final___Blanca_Arias
 {
@@ -27,12 +31,43 @@ namespace Proyecto_Final___Blanca_Arias
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            var model = this.getUserByIdQuery.Execute(Convert.ToInt32(txtCodigo.Text));
+
+            string rolUsuarioAutenticado = Auth.RolUsuario;
+            if (rolUsuarioAutenticado == "1")
+            {
+                int codigoUsuarioBuscado = Convert.ToInt32(txtCodigo.Text);
+
+                var model = this.getUserByIdQuery.Execute(codigoUsuarioBuscado);
+                MostrarInformacionUsuario(model);
+            }
+            else if (rolUsuarioAutenticado == "2")
+            {
+                int codigoUsuarioBuscado = Convert.ToInt32(txtCodigo.Text);
+
+                var model = this.getUserByIdQuery.Execute(codigoUsuarioBuscado);
+
+                if (model.Rol == "3")
+                {
+                    MostrarInformacionUsuario(model);
+                }
+                else
+                {
+                    MessageBox.Show("No tienes permiso para ver o editar este usuario.", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No tienes permiso para ver o editar usuarios.", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void MostrarInformacionUsuario(GetUserByIdQueryModel model)
+        {
             txtNombre.Text = model.NombreCompleto;
             txtIdentidad.Text = model.NumeroIdentidad;
             txtCorreo.Text = model.CorreoElectronico;
             txtTelefono.Text = model.Telefono;
-            if (model.Genero == "M") {
+            if (model.Genero == "M")
+            {
                 rbtnMasculino.Checked = true;
             }
             else
@@ -42,7 +77,6 @@ namespace Proyecto_Final___Blanca_Arias
             mskContraseña.Text = model.Contraseña;
             cboRol.SelectedIndex = Convert.ToInt32(model.Rol) - 1;
         }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             var model = new UpdateUserCommandModel();
