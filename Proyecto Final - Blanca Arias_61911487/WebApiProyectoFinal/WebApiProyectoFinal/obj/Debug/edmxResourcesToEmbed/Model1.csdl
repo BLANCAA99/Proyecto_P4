@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CentrosAsistencia">
+    <Key>
+      <PropertyRef Name="Id_Asistencia" />
+    </Key>
+    <Property Name="Id_Asistencia" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Capacidad_Atencion" Type="Int32" />
+    <Property Name="Cantidad_Medicos" Type="Int32" />
+    <Property Name="Cantidad_Enfermeras" Type="Int32" />
+    <Property Name="Estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VacunasxCiudadanoes" Relationship="Self.FK__VacunasxC__Centr__4AB81AF0" FromRole="CentrosAsistencia" ToRole="VacunasxCiudadano" />
+  </EntityType>
+  <EntityType Name="Ciudadano">
+    <Key>
+      <PropertyRef Name="Id_Ciudadanos" />
+    </Key>
+    <Property Name="Id_Ciudadanos" Type="Int32" Nullable="false" />
+    <Property Name="Nombre_Completo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Nacimiento" Type="DateTime" Precision="0" />
+    <Property Name="Edad" Type="Int32" />
+    <Property Name="Genero" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion_Domicilio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Estado_Civil" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Enfermedades_Base" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VacunasxCiudadanoes" Relationship="Self.FK__VacunasxC__Ciuda__49C3F6B7" FromRole="Ciudadanos" ToRole="VacunasxCiudadano" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" />
+    <Property Name="Contraseña" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroIdentidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NombreCompleto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Genero" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Vacuna">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Fabricante" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Emision" Type="DateTime" Precision="0" />
+    <Property Name="Fecha_Vencimiento" Type="DateTime" Precision="0" />
+    <Property Name="Numero_Lote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VacunasxCiudadanoes" Relationship="Self.FK__VacunasxC__Codig__4BAC3F29" FromRole="Vacunas" ToRole="VacunasxCiudadano" />
+  </EntityType>
+  <EntityType Name="VacunasxCiudadano">
+    <Key>
+      <PropertyRef Name="Numero_Dosis" />
+      <PropertyRef Name="Ciudadano_ID" />
+      <PropertyRef Name="Centro_Asistencia_ID" />
+      <PropertyRef Name="Codigo_Vacuna" />
+    </Key>
+    <Property Name="Numero_Dosis" Type="Int32" Nullable="false" />
+    <Property Name="Ciudadano_ID" Type="Int32" Nullable="false" />
+    <Property Name="Centro_Asistencia_ID" Type="Int32" Nullable="false" />
+    <Property Name="Codigo_Vacuna" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Aplicacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CentrosAsistencia" Relationship="Self.FK__VacunasxC__Centr__4AB81AF0" FromRole="VacunasxCiudadano" ToRole="CentrosAsistencia" />
+    <NavigationProperty Name="Ciudadano" Relationship="Self.FK__VacunasxC__Ciuda__49C3F6B7" FromRole="VacunasxCiudadano" ToRole="Ciudadanos" />
+    <NavigationProperty Name="Vacuna" Relationship="Self.FK__VacunasxC__Codig__4BAC3F29" FromRole="VacunasxCiudadano" ToRole="Vacunas" />
+  </EntityType>
+  <Association Name="FK__VacunasxC__Centr__4AB81AF0">
+    <End Role="CentrosAsistencia" Type="Self.CentrosAsistencia" Multiplicity="1" />
+    <End Role="VacunasxCiudadano" Type="Self.VacunasxCiudadano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CentrosAsistencia">
+        <PropertyRef Name="Id_Asistencia" />
+      </Principal>
+      <Dependent Role="VacunasxCiudadano">
+        <PropertyRef Name="Centro_Asistencia_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VacunasxC__Ciuda__49C3F6B7">
+    <End Role="Ciudadanos" Type="Self.Ciudadano" Multiplicity="1" />
+    <End Role="VacunasxCiudadano" Type="Self.VacunasxCiudadano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudadanos">
+        <PropertyRef Name="Id_Ciudadanos" />
+      </Principal>
+      <Dependent Role="VacunasxCiudadano">
+        <PropertyRef Name="Ciudadano_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VacunasxC__Codig__4BAC3F29">
+    <End Role="Vacunas" Type="Self.Vacuna" Multiplicity="1" />
+    <End Role="VacunasxCiudadano" Type="Self.VacunasxCiudadano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacunas">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="VacunasxCiudadano">
+        <PropertyRef Name="Codigo_Vacuna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Proyecto_FinalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CentrosAsistencias" EntityType="Self.CentrosAsistencia" />
+    <EntitySet Name="Ciudadanos" EntityType="Self.Ciudadano" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <EntitySet Name="Vacunas" EntityType="Self.Vacuna" />
+    <EntitySet Name="VacunasxCiudadanoes" EntityType="Self.VacunasxCiudadano" />
+    <AssociationSet Name="FK__VacunasxC__Centr__4AB81AF0" Association="Self.FK__VacunasxC__Centr__4AB81AF0">
+      <End Role="CentrosAsistencia" EntitySet="CentrosAsistencias" />
+      <End Role="VacunasxCiudadano" EntitySet="VacunasxCiudadanoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VacunasxC__Ciuda__49C3F6B7" Association="Self.FK__VacunasxC__Ciuda__49C3F6B7">
+      <End Role="Ciudadanos" EntitySet="Ciudadanos" />
+      <End Role="VacunasxCiudadano" EntitySet="VacunasxCiudadanoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VacunasxC__Codig__4BAC3F29" Association="Self.FK__VacunasxC__Codig__4BAC3F29">
+      <End Role="Vacunas" EntitySet="Vacunas" />
+      <End Role="VacunasxCiudadano" EntitySet="VacunasxCiudadanoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

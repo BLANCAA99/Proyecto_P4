@@ -1,0 +1,271 @@
+﻿<main>
+    <section class="container">
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+                <div class="card shadow p-3 mb-5 bg-body rounded">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Ciudadano</h2>
+
+                        <form id="ciudadanoForm">
+                            <div class="form-group mt-3">
+                                <label for="identidad">Identidad</label>
+                                <input name="identidad" type="text" class="form-control" id="identidad" placeholder="Ingrese el id">
+                            </div>
+                            <article id="data-ciudadano" class="ciudadano--ocultar">
+                                <div class="form-group mt-3">
+                                    <label for="nombre">Nombre Completo</label>
+                                    <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre">
+                                </div>
+
+                                <div class="form-group mt-3">
+                                    <label for="fecnacimiento">Fecha de nacimiento</label>
+                                    <input name="fecnacimiento" type="date" class="form-control" id="fecnacimiento" placeholder="Ingrese la fecha de nacimiento">
+                                </div>
+
+                                <div class="form-group mt-3">
+                                    <label for="genero">Genero</label>
+                                    <input name="genero" type="text" class="form-control" id="genero" placeholder="Ingrese la fecha de nacimiento">
+                                </div>
+
+                                <div class="form-group mt-3">
+                                    <label for="direccion">Direccion</label>
+                                    <input name="direccion" type="text" class="form-control" id="direccion" placeholder="Dirección de domicilio">
+                                </div>
+
+                                <div class="form-group mt-3">
+                                    <label for="estadocivil">Estado civil</label>
+                                    <input name="estadocivil" type="text" class="form-control" id="estadocivil" placeholder="Ingrese el estado civil">
+                                </div>
+                                <div class="form-group mt-5">
+                                    <h5 >Vacunas</h5>
+                                    <div id="vacunas"></div>
+                                </div>
+                            </article>
+                            <div class="col mt-4 mb-3 ">
+                                <button type="button" onclick="search()" class="btn btn-primary btn-block mt-1">Buscar</button>
+                                <button type="button" onclick="mostrarCiudadano()" class="btn btn-secondary btn-block mt-1">Agregar ciudadano</button>
+                                <button type="button" onclick="ingresarDosis()" class="btn btn-secondary mt-1">Agregar Vacuna </button>
+
+                            </div>
+                            <div class="row mt-4 mb-3 ">
+
+                                <button id="btn-form" data-action="create" type="submit" class="btn btn-primary btn-block ">Guardar</button>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+
+
+
+
+
+<style>
+    .ciudadano--ocultar {
+        display: none;
+    }
+</style>
+
+<script type="text/javascript">
+
+    function ingresarDosis() {
+        console.log("Ejecuta")
+        window.location.href = "/Home/VacunaXCiudadano/" + Number(getValue("identidad")); 
+    }
+
+    function setValue(id, value) {
+        document.getElementById(id).value = value;
+    }
+
+    function limpiarInputs() {
+        setValue("nombre", '');
+        setValue("fecnacimiento", '');
+        setValue("genero", '');
+        setValue("direccion", '');
+        setValue("estadocivil", '');
+        setVacunas([]); 
+    }
+
+    function mostrarCiudadano() {
+        //Mostramos los input de la informacion del ciudadano
+        limpiarInputs();
+        let dataCiudadano = document.getElementById("data-ciudadano");
+        dataCiudadano.classList.remove("ciudadano--ocultar");
+    }
+
+    function setVacunas(vacunas) {
+        let vacunasContainer = document.getElementById("vacunas");
+        if (vacunas.length === 0) vacunasContainer.innerHTML = "No tiene vacunas";
+        let ul = document.createElement("ul");
+        for (let vacuna of vacunas) {
+            let li = document.createElement("li");
+            li.innerHTML = `#dosis: ${vacuna.Numero_Dosis}  vacuna: ${vacuna.Codigo_Vacuna} fecha:  ${vacuna.Fecha_Aplicacion} `;
+            ul.appendChild(li);
+        }
+       
+        vacunasContainer.appendChild(ul);
+    }
+
+    function search() {
+        let identidad = document.getElementById("identidad");
+        let value = Number(identidad.value);
+        console.log("buscar");
+        const button = document.getElementById("btn-form");
+        fetch(`/api/ciudadanoes/${value}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+            .then(response => response.status === 404 ? { success: false } : response.json() )
+            .then(data => {
+                console.log("data", data);
+
+                if (data.success === undefined) {
+                    //Ingresamos la informacion de ciudadano
+                    identidad.value = data.Id_Ciudadanos;
+                    setValue("nombre", data.Nombre_Completo);
+                    setValue("fecnacimiento", data.Fecha_Nacimiento);
+                    setValue("genero", data.Genero);
+                    setValue("direccion", data.Direccion_Domicilio);
+                    setValue("estadocivil", data.Estado_Civil);
+                    console.log("Actualiza");
+                    setVacunas(data.VacunasxCiudadanoes); 
+                    button.setAttribute("data-action", "save");
+                    //window.location.href = "/Home/index";
+                } else {
+                    button.setAttribute("data-action", "create")
+                    //document.getElementById("message").textContent = "Credenciales incorrectas. Inténtalo de nuevo.";
+                }
+                mostrarCiudadano();
+            })
+            .catch(error => {
+                console.error("Error de red:", error);
+            });
+    }
+
+    function getValue(id) {
+        return document.getElementById(id).value;
+    }
+
+    function getData() {
+        let data = {
+            Id_Ciudadanos: getValue("identidad"),
+            Nombre_Completo: getValue("nombre"),
+            Fecha_Nacimiento: getValue("fecnacimiento"),
+            Genero: getValue("genero"),
+            Direccion_Domicilio: getValue("direccion"),
+            Estado_Civil: getValue("estadocivil"),
+        }
+        return data;
+    }
+ 
+    function create() {
+        let identidad = document.getElementById("identidad");
+        let value = Number(identidad.value);
+        const button = document.getElementById("btn-form");
+        const data = getData();
+        console.log("data", data);
+        fetch(`/api/ciudadanoes/${value}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("data", data);
+                if (data.success === undefined) {
+                    //Ingresamos la informacion de ciudadano
+                    identidad.value = data.id;
+                    setValue("nombre", data.nombre);
+                    setValue("fecnacimiento", data.fecnacimiento);
+                    setValue("genero", data.genero);
+                    setValue("direccion", data.direccion);
+                    setValue("estadocivil", data.fecnacimiento);
+
+                    //Mostramos la informacion del ciudadano
+                    let dataCiudadano = document.getElementById("data-ciudadano");
+                    dataCiudadano.classList.remove("ciudadano--ocultar");
+
+                    button.setAttribute("data-action", "save");
+                } else {
+
+                    //document.getElementById("message").textContent = "Credenciales incorrectas. Inténtalo de nuevo.";
+                }
+            })
+            .catch(error => {
+                console.error("Error de red:", error);
+            });
+    }
+
+    function save() {
+        let identidad = document.getElementById("identidad");
+        let value = Number(identidad.value);
+        const button = document.getElementById("btn-form");
+        const data = getData();
+
+        fetch(`/api/ciudadanoes/${vaue}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("data", data);
+                if (data.success) {
+                    //Ingresamos la informacion de ciudadano
+                    identidad.value = data.id;
+                    setValue("nombre", data.nombre);
+                    setValue("fecnacimiento", data.fecnacimiento);
+                    setValue("genero", data.genero);
+                    setValue("direccion", data.direccion);
+                    setValue("estadocivil", data.fecnacimiento);
+
+                    //Mostramos la informacion del ciudadano
+                    let dataCiudadano = document.getElementById("data-ciudadano");
+                    dataCiudadano.classList.remove("ciudadano--ocultar");
+
+                    window.location.href = "/Home/index";
+                } else {
+
+                    //document.getElementById("message").textContent = "Credenciales incorrectas. Inténtalo de nuevo.";
+                }
+            })
+            .catch(error => {
+                console.error("Error de red:", error);
+            });
+    }
+
+    document.getElementById("ciudadanoForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const button = document.getElementById("btn-form");
+        const action = button.getAttribute("data-action");
+
+        switch (action) {
+            case "create":
+                create(button);
+                break;
+            case "save":
+                save(button);
+                break;
+            default:
+            // Código a ejecutar si la expresión no coincide con ningún caso
+        }
+
+
+    });
+
+</script>

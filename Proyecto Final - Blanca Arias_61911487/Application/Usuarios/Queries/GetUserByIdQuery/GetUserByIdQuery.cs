@@ -21,6 +21,7 @@ namespace Applicacion.Usuarios.Queries.GetUserByIdQuery
        public GetUserByIdQueryModel Execute(int codigo)
         {
             var usuario = this.db.Usuarios.FirstOrDefault(x => x.Codigo == codigo);
+            if (usuario == null) return null;
             var model = new GetUserByIdQueryModel { Codigo = usuario.Codigo, NumeroIdentidad = usuario.NumeroIdentidad, NombreCompleto = usuario.NombreCompleto, Rol = usuario.Rol, Contraseña = usuario.Contraseña, CorreoElectronico = usuario.CorreoElectronico, Genero = usuario.Genero, Telefono = usuario.Telefono };
             return model;
         }
